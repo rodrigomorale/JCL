@@ -1,0 +1,17 @@
+//JOB067      JOB 'NET067 USING PARAMETERS',
+//            ROS.MORALE,REGION=0M,MSGCLASS=R,
+//            COND=((8,EQ),(12,EQ),(16,EQ),(888,EQ)),
+//            CLASS=A
+//*-------------------------------------------------------------------*
+//*        SEND FILE TO NET USING NET067
+//*-------------------------------------------------------------------*
+//NET067   EXEC PGM=NET067,PARM=03                *** RESTART POINT ***
+//SYSOUT   DD SYSOUT=*
+//FTSRJE   DD DSN=&FTSRJE,DISP=SHR
+//DDENT01  DD DSN=DS.ARQNET01.SS000101,
+//            DISP=SHR
+//DDENT02  DD DSN=DS.ARQNET02.SS000101,
+//            DISP=SHR
+//DDENT03  DD DSN=DS.ARQNET03.SS000101,
+//            DISP=SHR
+//*-------------------------------------------------------------------*
