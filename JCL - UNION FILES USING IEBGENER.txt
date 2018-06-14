@@ -13,7 +13,7 @@
 //SYS000   EXEC PGM=SYS000,
 //         PARM=('DS.&NMFILE.OUT.D&DTFILE..SS000101')
 //*-------------------------------------------------------------------*
-//*        EXECUTE COPY FILE      
+//*        EXECUTE UNION FILES      
 //*-------------------------------------------------------------------*
 //UNION     EXEC PGM=IEBGENER
 //SYSPRINT  DD DUMMY
