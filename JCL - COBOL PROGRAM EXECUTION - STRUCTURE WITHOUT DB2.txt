@@ -1,0 +1,26 @@
+//*----------------------------------------------------------------*
+//*-------- PROGRAM EXECUTION STRUCTURE - WITHOUT DB2 -------------*
+//*----------------------------------------------------------------*
+//*-------- FILE SCRATCH ------------------------------------------*
+//*----------------------------------------------------------------*
+//SYS000A    EXEC PGM=SYS000,                    ***RESTART POINT***
+//           PARM='&HLQ..ARQOUT1E.D&DTMOV..SS000101'
+//*----------------------------------------------------------------*
+//SYS000B    EXEC PGM=SYS000,                    ***RESTART POINT***
+//           PARM='&HLQ..ARQOUT1E.D&DTMOV..SS000101'
+//*----------------------------------------------------------------*
+//PROGRAM1   EXEC PGM=PROGRAM1
+//SYSTSPRT   DD   SYSOUT=*
+//DDPRINT    DD   SYSOUT=*
+//SYSOUT     DD   SYSOUT=*
+//ARQIN01E   DD   DSN=&HLQ..ARQIN01E.D&DTMOV..SS000101,  * IN FILE *
+//           DISP=SHR
+//ARQIN02E   DD   DSN=&HLQ..ARQIN02E.D&DTMOV..SS000101,  * IN FILE *
+//           DISP=SHR
+//ARQOUT1E   DD   DSN=&HLQ..ARQOUT1E.D&DTMOV..SS000101, * OUT FILE *
+//           DISP=(,CATLG),LRECL=17,RECFM=FB,DSORG=PS,
+//           AVGREC=K,SPACE=(17,(10,1),RLSE)
+//ARQOUT2E   DD   DSN=&HLQ..ARQOUT2E.D&DTMOV..SS000101, * OUT FILE *
+//           DISP=(,CATLG),LRECL=37,RECFM=FB,DSORG=PS,
+//           AVGREC=K,SPACE=(37,(10,1),RLSE)
+//*----------------------------------------------------------------*

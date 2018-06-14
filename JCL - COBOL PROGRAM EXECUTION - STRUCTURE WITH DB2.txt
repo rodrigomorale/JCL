@@ -1,0 +1,45 @@
+//*----------------------------------------------------------------*
+//*-------- PROGRAM EXECUTION STRUCTURE - WITH DB2 ----------------*
+//*----------------------------------------------------------------*
+//*-------- FILE SCRATCH ------------------------------------------*
+//*----------------------------------------------------------------*
+//SYS000A    EXEC PGM=SYS000,                    ***RESTART POINT***
+//           PARM='&HLQ..ARQOUT1E.D&DTMOV..SS000101'
+//*----------------------------------------------------------------*
+//SYS000B    EXEC PGM=SYS000,                    ***RESTART POINT***
+//           PARM='&HLQ..ARQOUT1E.D&DTMOV..SS000101'
+//*----------------------------------------------------------------*
+//SYS108A    EXEC PGM=SYS108,
+//           PARM=('DB2=&DB2,PGM=PROGRAM1',
+//           'LIB=&CICSLIB')
+//SYSUT1     DD   DSN=&CARDLIB(CARDPGM),DISP=SHR
+//SYSUT2     DD   DSN=&&CARDPGM,DISP=(,PASS),UNIT=VIO,
+//           LRECL=80,RECFM=FB,SPACE=(TRK,1)
+//*----------------------------------------------------------------*
+//PROGRAM1   EXEC PGM=IKJEFT01,DYNAMNBR=20
+//SYSTSPRT   DD   SYSOUT=*
+//DDPRINT    DD   SYSOUT=*
+//SYSOUT     DD   SYSOUT=*
+//ARQIN01E   DD   DSN=&HLQ..ARQIN01E.D&DTMOV..SS000101,  * IN FILE *
+//           DISP=SHR
+//ARQIN02E   DD   DSN=&HLQ..ARQIN02E.D&DTMOV..SS000101,  * IN FILE *
+//           DISP=SHR
+//ARQOUT1E   DD   DSN=&HLQ..ARQOUT1E.D&DTMOV..SS000101, * OUT FILE *
+//           DISP=(,CATLG),LRECL=17,RECFM=FB,DSORG=PS,
+//           AVGREC=K,SPACE=(17,(10,1),RLSE)
+//ARQOUT2E   DD   DSN=&HLQ..ARQOUT2E.D&DTMOV..SS000101, * OUT FILE *
+//           DISP=(,CATLG),LRECL=37,RECFM=FB,DSORG=PS,
+//           AVGREC=K,SPACE=(37,(10,1),RLSE)
+//SYSTSIN    DD   DSN=&&GCARDPGM,DISP=SHR
+//*----------------------------------------------------------------*
+
+//****************************************************************//
+
+//*----------------------------------------------------------------*
+//*-------- CARDPGM FOR DB2 USE -----------------------------------*
+//*----------------------------------------------------------------*
+ DSN SYSTEM(&DB2)
+ RUN PROGRAM(&PGM) PLAN(PLANDB2) -
+     LIB('&LIB')
+ END
+//*----------------------------------------------------------------*
