@@ -1,0 +1,38 @@
+//JSYS61      JOB 'SYS061 USING PARAMETERS',
+//            ROS.MORALE,REGION=0M,MSGCLASS=R,
+//            COND=((8,EQ),(12,EQ),(16,EQ),(888,EQ)),
+//            CLASS=A
+//*-------------------------------------------------------------------*
+//*           BUILD PARAMETERS FOR SYS061
+//*-------------------------------------------------------------------*
+//SYS108      EXEC PGM=SYS108,
+//            PARM=('DTFL=&DTMOV.LE')
+//SYSUT1      DD DSN=&CARDLIB(CARD061),DISP=SHR
+//SYSUT2      DD DSN=&&SYS061A,UNIT=VIO,DISP=(,PASS),
+//            LRECL=80,RECFM=FB,DSORG=PS,SPACE=(TRK,1)
+//*-------------------------------------------------------------------*
+//*           FILE SCRATCH
+//*-------------------------------------------------------------------*
+//SYS000      EXEC PGM=SYS000,                    *** RESTART POINT ***
+//            PARM=('DS.ARQNET.DYYYYMMAA.SS000101')
+//*-------------------------------------------------------------------*
+//*           COPY FILE FROM NET
+//*-------------------------------------------------------------------*
+//SYS061      EXEC PGM=SYS061,PARM='ARQNET'
+//PRTREM      DD SYSOUT=*
+//DDENTR      DD DYNAM
+//FTSRJE      DD DSN=&FTSRJE,DISP=SHR
+//DDECARD     DD DSN=&&SYS061A,DISP=(OLD,DELETE)
+//ARQDSN      DD UNIT=VIO
+//BACKUP      DD DSN=DS.ARQNET.DYYYYMMAA.SS000101,
+//            DISP=(,CATLG),LRECL=37,RECFM=FB,DSORG=PS,
+//            AVGREC=K,SPACE=(37,(10,A),RLSE)
+//*-------------------------------------------------------------------*
+
+//*******************************************************************//
+
+//*-------------------------------------------------------------------*
+//*           CARDLIB (CARD061)
+//*-------------------------------------------------------------------*
+SD&DTFL
+//*-------------------------------------------------------------------*
