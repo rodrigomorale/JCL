@@ -1,0 +1,26 @@
+//JOBCPY      JOB 'IEBGENER UNION FILES',
+//            ROS.MORALE,REGION=0M,MSGCLASS=R,
+//            COND=((8,EQ),(12,EQ),(16,EQ),(888,EQ)),
+//            CLASS=A
+//*-------------------------------------------------------------------*
+//*     SET PARAMETERS TO JOB   
+//*-------------------------------------------------------------------*
+// SET  NMFILE='FLNAME',
+//      DTFILE='YYYYMMDD'
+//*-------------------------------------------------------------------*
+//*        FILE SCRATCH
+//*-------------------------------------------------------------------*
+//SYS000   EXEC PGM=SYS000,
+//         PARM=('DS.&NMFILE.OUT.D&DTFILE..SS000101')
+//*-------------------------------------------------------------------*
+//*        EXECUTE COPY FILE      
+//*-------------------------------------------------------------------*
+//UNION     EXEC PGM=IEBGENER
+//SYSPRINT  DD DUMMY
+//SYSUT1    DD DSN=DS.&NMFILE.IN01.D&DTFILE..SS000101,DISP=SHR
+//          DD DSN=DS.&NMFILE.IN02.D&DTFILE..SS000101,DISP=SHR
+//          DD DSN=DS.&NMFILE.IN03.D&DTFILE..SS000101,DISP=SHR
+//SYSUT2    DD DSN=DS.&NMFILE.OUT.D&DTFILE..SS000101,
+//          DISP=(,CATLG),LRECL=107,RECFM=FB,DSORG=PS,
+//          AVGREC=K,SPACE=(107,(100,10),RLSE)
+//*-------------------------------------------------------------------*
