@@ -1,0 +1,19 @@
+//*-------------------------------------------------------------------*
+//*        JCL FOR COPY FILE USING IEBGENER                           *
+//*--- In and out files need to have the same specifications          *
+//*-------------------------------------------------------------------*
+//*        FILE SCRATCH
+//*-------------------------------------------------------------------*
+//SYS000   EXEC PGM=SYS000,
+//         PARM=('DS.FILEIN.DYYYYMMDD.SS000101')
+//*-------------------------------------------------------------------*
+//*        EXECUTE COPY FILE      
+//*-------------------------------------------------------------------*
+//FILECP   EXEC PGM=IEBGENER
+//SYSPRINT DD  DUMMY
+//SYSUT1   DD  DSN=DS.FILEIN.DYYYYMMDD.SS000101,        *** FILE IN ***
+//             DISP=SHR
+//SYSUT2   DD  DSN=DS.FILEIN.DYYYYMMDD.SS000101,       *** FILE OUT ***
+//             DISP=(,CATLG),LRECL=180,DSORG=PS,RECFM=FB,
+//             AVGREC=K,SPACE=(180,(10,1),RLSE)
+//*-------------------------------------------------------------------*
