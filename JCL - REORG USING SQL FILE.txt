@@ -1,0 +1,23 @@
+//JOBTXT      JOB 'REORG USING SQL FILE',
+//            ROS.MORALE.RODRIGO,REGION=0M,MSGCLASS=R,
+//*           RESTART=REORGSQL,
+//*           TYPRUN=SCAN,
+//            COND=((08,EQ),(12,EQ),(16,EQ),(888,EQ)),CLASS=A
+//*-------------------------------------------------------------------*
+//REORGSQL     EXEC  PDB2E870,
+//             JOBNAME=JOBTXT,
+//             DB2=D0G1,
+//             CLVL=FULL,
+//             DB=D1SIS01,
+//             HLQS=DSS,
+//             CARDLIB=DSP.STDPRI.CARDLIB,
+//             CICSLIB=CICS.CPDLIB,
+//             HLQ=DST,
+//             SHRL=NONE,
+//             OPCAO='NEW',
+//             TIPO=1,
+//             VRSSRT=220,
+//             OBJ=S1SIS001,
+//             DSNSQL='DST.SIS.SISF001.D180702.SS000101',
+//             TS=S1SIS001
+//*-------------------------------------------------------------------*
