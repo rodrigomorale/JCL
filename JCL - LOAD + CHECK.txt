@@ -1,0 +1,40 @@
+//JOBTST      JOB 'LOAD + CHECK',
+//            ROS.MORALE.RODRIGO,REGION=0M,MSGCLASS=R,
+//*           RESTART=REORGSQL,
+//*           TYPRUN=SCAN,
+//            COND=((08,EQ),(12,EQ),(16,EQ),(888,EQ)),CLASS=A
+//*---------------------------------------------------------------------
+//LOAD001      EXEC  PDB2E812,
+//             SIS=SIS,
+//             DB2=D0G1,
+//             CARDLIB=DST.STDPRI.CARDLIB,
+//             CICSLIB=DST.CICSPRI.CPDLIB,
+//             CREATOR=DB2SIS,
+//             DSNREC=DST.SIS.SIS01U.D180702.SS000121,
+//             SYSPUNCH=DST.SIS.SIS01P.D180702.SS000121,
+//             HLQ=DST,
+//             JOBNAME=JOBTST,
+//             OBJ=S1SIS001,
+//             OPCAO='NEW/RESTART',
+//             ORD=B2NRO,
+//             TIPO=1,    *** ADD LOAD
+//*             TIPO=2D,   *** REPLACE LOAD
+//             TAB='SIS_NOME_TABELA'
+//*---------------------------------------------------------------------
+//CHECK001     EXEC  PDB2E860,
+//             DB2=D0G1,
+//             HLQ=DST,
+//             HLQS=DSS,
+//             VRSSRT=113,
+//             CARDLIB=DST.STDPRI.CARDLIB,
+//             CREATOR=DB2SIS,
+//             JOBNAME=JOBTST,
+//             SCOPE=ALL,
+//             DB=D1SIS01,
+//             OBJ=S1SIS001,
+//             ORD=B2NRO,
+//             SIS=SIS,
+//             TIPO=1,   *** ONLY TABLE AND CHILDS
+//*             TIPO=2,  *** ALL DB
+//             TS=S1SIS001
+//*---------------------------------------------------------------------
