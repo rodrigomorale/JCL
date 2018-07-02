@@ -19,7 +19,7 @@
 //             ORD=B2NRO,
 //             TIPO=1,    *** ADD LOAD
 //*             TIPO=2D,   *** REPLACE LOAD
-//             TAB='SIS_NOME_TABELA'
+//             TAB='SIS_NAME_TABELA'
 //*---------------------------------------------------------------------
 //CHECK001     EXEC  PDB2E860,
 //             DB2=D0G1,
