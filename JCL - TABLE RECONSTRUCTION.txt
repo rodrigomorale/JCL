@@ -1,0 +1,60 @@
+//JOBTST      JOB 'TABLE RECONSTRUCTION',
+//            ROS.MORALE.RODRIGO,REGION=0M,MSGCLASS=R,
+//*           RESTART=UNLOAD1,
+//*           TYPRUN=SCAN,
+//            COND=((08,EQ),(12,EQ),(16,EQ),(888,EQ)),CLASS=A
+///*---------------------------------------------------------------------
+//*--- REORG -----------------------------------------------------------
+//*---------------------------------------------------------------------
+//REORG01      EXEC  PDB2E870,
+//             JOBNAME=%%JOBNAME,
+//             DB2=D0G1,
+//             CLVL=FULL,
+//             VCT=30,
+//             DB=D1SIS01,
+//             HLQS=DSS,
+//             CARDLIB=DST.STDPRI.CARDLIB,
+//             CICSLIB=DST.CICSPRI.CPDLIB,
+//             HLQ=DST,
+//             SHRL=NONE,
+//             TIPO=1,
+//             OBJ=S1SIS001,
+//             TS=S1SIS001
+//*---------------------------------------------------------------------
+//*--- REBUILD ---------------------------------------------------------
+//*---------------------------------------------------------------------
+//REBUILD1     EXEC PDB2E830,
+//             DB2=D0G1,
+//             CREATOR=DB2SIS,
+//             HLQS=DSS,
+//             HLQ=DST,
+//             CARDLIB=DST.STDPRI.CARDLIB,
+//             CICSLIB=DST.CICSPRI.CPDLIB,
+//             DB=D1SIS01,
+//             OPCAO=NEW,
+//             TIPO=2,
+//             OBJ=S1SIS001,
+//             TS=S1SIS001
+//*---------------------------------------------------------------------
+//*--- RUNSTATS---------------------------------------------------------
+//*---------------------------------------------------------------------
+//*RUNSTAT1     EXEC  PDB2E820,
+//*             DB2=D0G1,UTIL=2,
+//*             NOMEOBJ='D1SIS01.S1SIS001',
+//*             CARDLIB=DST.STDPRI.CARDLIB,
+//*             CICSLIB=DST.CICSPRI.CPDLIB,
+//*             HLQS=DSS,
+//*             JOBNAME=%%JOBNAME,
+//*             ORDER=%%ORDERID,
+//*             VRSSRT=113,
+//*             TIPOOBJ=1
+//*---------------------------------------------------------------------
+//*--- REBIND   --------------------------------------------------------
+//*---------------------------------------------------------------------
+//REBIND1      EXEC  PDB2E032,
+//             DB2=D0G1,
+//             CARDLIB=DST.STDPRI.CARDLIB,
+//             CICSLIB=DST.CICSPRI.CPDLIB,
+//             HLQ=DST,
+//             TS=S1SIS001
+//*---------------------------------------------------------------------
