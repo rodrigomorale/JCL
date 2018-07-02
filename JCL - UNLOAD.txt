@@ -1,0 +1,21 @@
+//JOBTST      JOB 'UNLOAD',
+//            ROS.MORALE.RODRIGO,REGION=0M,MSGCLASS=R,
+//*           RESTART=UNLOAD1,
+//*           TYPRUN=SCAN,
+//            COND=((08,EQ),(12,EQ),(16,EQ),(888,EQ)),CLASS=A
+//*----------------------------------------------------------------*
+//UNLOAD1      EXEC  PDB2E880,
+//             JOBNAME=JOBTST,
+//             CARDLIB=DST.STDPRI.CARDLIB,
+//             CICSLIB=DST.CICSPRI.CPDLIB,
+//             DB2=D0G1,
+//             CREATOR=DB2SIS,
+//             DSNREC='DST.SIS.SIS01U.D180702.SS000121',
+//             DSNPUNCH=DST.SIS.SIS01P.D180702.SS000121,
+//             HLQ=DST,
+//             OBJ=S1SIS001,
+//             OPCAO='NEW/RESTART',
+//             ORD=1,
+//             SIS=SIS,
+//             TABLE='SIS_TABLE_NAME'
+//*-------------------------------------------------------------------*
